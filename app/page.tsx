@@ -2103,7 +2103,7 @@ export default function HomePage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-5">
-                  <h3 className="text-white text-xl font-black drop-shadow-lg">لقائنا مع الوفد الصيني</h3>
+                  <h3 className="text-white text-xl font-black drop-shadow-lg">لقائنا مع قناة الشمس</h3>
                   <div className="flex items-center gap-2 mt-1.5 opacity-80">
                     <Facebook className="w-3.5 h-3.5 text-white" />
                     <span className="text-white text-xs font-medium">شاهد الفيديو على فيسبوك</span>
@@ -2140,7 +2140,7 @@ export default function HomePage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-5">
-                  <h3 className="text-white text-xl font-black drop-shadow-lg">لقائنا مع قناة الشمس</h3>
+                  <h3 className="text-white text-xl font-black drop-shadow-lg">لقائنا مع الوفد الصيني</h3>
                   <div className="flex items-center gap-2 mt-1.5 opacity-80">
                     <Facebook className="w-3.5 h-3.5 text-white" />
                     <span className="text-white text-xs font-medium">شاهد الفيديو على فيسبوك</span>
