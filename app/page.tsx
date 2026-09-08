@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React, { useState, useEffect, useRef, useMemo, useCallback } from "react";
 import Image from "next/image";
@@ -1118,6 +1118,7 @@ export default function HomePage() {
     { href: "#portfolio", label: "سابقة الأعمال" },
     { href: "#3d-brick", label: "معاينة 3D" },
     { href: "#calculator", label: "حاسبة الأسعار" },
+    { href: "#info", label: "معلومات" },
     { href: "#contact", label: "تواصل معنا" },
   ];
 
@@ -1145,21 +1146,23 @@ export default function HomePage() {
             <a
               href="#home"
               onClick={(e) => { e.preventDefault(); scrollToSection("#home"); }}
-              className="flex items-center gap-3"
+              className="flex items-center gap-3 group"
             >
               <motion.div
-                whileHover={{ scale: 1.1, rotateY: 15 }}
+                whileHover={{ scale: 1.08, rotateY: 15 }}
                 transition={{ type: "spring", stiffness: 400 }}
                 style={{ perspective: "400px" }}
-                className="relative w-11 h-11 sm:w-13 sm:h-13 md:w-14 md:h-14 flex-shrink-0"
+                className="relative w-12 h-12 md:w-14 md:h-14 p-1.5 rounded-2xl bg-white/10 dark:bg-slate-800/60 backdrop-blur-md border border-white/20 dark:border-slate-700 shadow-md group-hover:border-brick-500/50 group-hover:shadow-brick-600/20 transition-all duration-300 flex-shrink-0 flex items-center justify-center"
               >
-                <Image
-                  src="/images/logo.png"
-                  alt="Awlad Khedr Logo"
-                  fill
-                  className="object-contain drop-shadow-lg"
-                  priority
-                />
+                <div className="relative w-full h-full">
+                  <Image
+                    src="/images/logo.png"
+                    alt="Awlad Khedr Logo"
+                    fill
+                    className="object-contain drop-shadow-md"
+                    priority
+                  />
+                </div>
               </motion.div>
               <div className="flex flex-col">
                 <span
@@ -1489,8 +1492,10 @@ export default function HomePage() {
                 className="bg-gradient-to-br from-brick-700 via-brick-800 to-brick-950 rounded-2xl p-6 md:p-8 text-white shadow-xl border border-brick-600/30"
               >
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="relative w-12 h-12 flex-shrink-0 bg-white rounded-xl p-1 shadow-md">
-                    <Image src="/images/logo.png" alt="Awlad Khedr Logo" fill className="object-contain p-1" />
+                  <div className="relative w-14 h-14 p-2 flex-shrink-0 bg-white/10 dark:bg-black/30 backdrop-blur-md rounded-2xl border border-white/20 dark:border-white/10 shadow-lg flex items-center justify-center">
+                    <div className="relative w-full h-full">
+                      <Image src="/images/logo.png" alt="Awlad Khedr Logo" fill className="object-contain drop-shadow-sm" />
+                    </div>
                   </div>
                   <div>
                     <h3 className="text-xl font-bold">سلسلة مصانع وخطوط إنتاج المجموعة</h3>
@@ -1804,15 +1809,17 @@ export default function HomePage() {
             transition={{ duration: 0.7 }}
             className="mt-20 rounded-3xl overflow-hidden shadow-2xl border border-gray-100 dark:border-slate-800"
           >
-            <div className="grid lg:grid-cols-2 min-h-[420px]">
-              <div className="relative min-h-[280px] lg:min-h-full">
+            <div className="grid lg:grid-cols-2 min-h-[440px]">
+              <div className="relative w-full h-[320px] sm:h-[380px] md:h-[440px] lg:h-full min-h-[300px] overflow-hidden">
                 <Image
                   src="/images/workers.jpg"
                   alt="فريق عمال مصانع أولاد خضر"
                   fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+                  priority
                   className="object-cover object-center"
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-slate-900/60 hidden lg:block" />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:via-transparent lg:to-slate-900/70 pointer-events-none" />
               </div>
               <div className="bg-gradient-to-br from-slate-900 via-slate-850 to-slate-950 flex flex-col justify-center px-8 md:px-12 py-10 text-white">
                 <div className="inline-flex items-center gap-2 bg-brick-600/20 text-brick-300 text-xs font-bold px-3 py-1.5 rounded-full mb-5 w-fit border border-brick-500/30">
@@ -2065,6 +2072,115 @@ export default function HomePage() {
       </Section>
 
       {/* ============================================================
+          INFO SECTION
+          ============================================================ */}
+      <Section id="info" bg="white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionTitle title="معلومات" subtitle="لقاءاتنا وأنشطتنا" />
+
+          <div className="grid sm:grid-cols-2 gap-6 md:gap-10 justify-items-center">
+            {/* Card 1 — لقائنا مع قناة الشمس */}
+            <motion.a
+              href="https://www.facebook.com/share/v/1DRutzfE7D/?mibextid=wwXIfr"
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              whileHover={{ y: -6, scale: 1.02 }}
+              className="group relative w-full max-w-sm rounded-3xl overflow-hidden shadow-xl border border-gray-100 dark:border-slate-800 cursor-pointer"
+            >
+              {/* Image */}
+              <div className="relative w-full aspect-[4/3] overflow-hidden">
+                <Image
+                  src="/images/shams-channel.jpg"
+                  alt="لقائنا مع قناة الشمس"
+                  fill
+                  sizes="(max-width: 640px) 100vw, 50vw"
+                  className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                />
+                {/* Play overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="w-16 h-16 rounded-full bg-[#1877F2]/90 flex items-center justify-center shadow-2xl">
+                    <svg className="w-7 h-7 text-white ml-1" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+              {/* Label */}
+              <div className="bg-white dark:bg-slate-900 p-5">
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-9 h-9 rounded-xl bg-[#1877F2] flex items-center justify-center flex-shrink-0">
+                    <Facebook className="w-5 h-5 text-white" />
+                  </div>
+                  <span className="text-[11px] text-gray-400 dark:text-gray-500 font-medium">شاهد على فيسبوك</span>
+                </div>
+                <h3 className="text-lg md:text-xl font-black text-slate-850 dark:text-white leading-snug">
+                  لقائنا مع قناة الشمس
+                </h3>
+                <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                  اضغط لمشاهدة الفيديو كاملاً على فيسبوك
+                </p>
+              </div>
+              {/* Bottom accent */}
+              <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-brick-500 to-accent-orange" />
+            </motion.a>
+
+            {/* Card 2 — لقائنا مع الوفد الصيني */}
+            <motion.a
+              href="https://www.facebook.com/share/r/1cSN8thcaK/?mibextid=wwXIfr"
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.15 }}
+              whileHover={{ y: -6, scale: 1.02 }}
+              className="group relative w-full max-w-sm rounded-3xl overflow-hidden shadow-xl border border-gray-100 dark:border-slate-800 cursor-pointer"
+            >
+              {/* Image */}
+              <div className="relative w-full aspect-[4/3] overflow-hidden">
+                <Image
+                  src="/images/chinese-delegation.jpg"
+                  alt="لقائنا مع الوفد الصيني"
+                  fill
+                  sizes="(max-width: 640px) 100vw, 50vw"
+                  className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                />
+                {/* Play overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="w-16 h-16 rounded-full bg-[#1877F2]/90 flex items-center justify-center shadow-2xl">
+                    <svg className="w-7 h-7 text-white ml-1" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+              {/* Label */}
+              <div className="bg-white dark:bg-slate-900 p-5">
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-9 h-9 rounded-xl bg-[#1877F2] flex items-center justify-center flex-shrink-0">
+                    <Facebook className="w-5 h-5 text-white" />
+                  </div>
+                  <span className="text-[11px] text-gray-400 dark:text-gray-500 font-medium">شاهد على فيسبوك</span>
+                </div>
+                <h3 className="text-lg md:text-xl font-black text-slate-850 dark:text-white leading-snug">
+                  لقائنا مع الوفد الصيني
+                </h3>
+                <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                  اضغط لمشاهدة الفيديو كاملاً على فيسبوك
+                </p>
+              </div>
+              {/* Bottom accent */}
+              <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-brick-500 to-accent-orange" />
+            </motion.a>
+          </div>
+        </div>
+      </Section>
+
+      {/* ============================================================
           FOOTER
           ============================================================ */}
       <footer className="bg-slate-900 dark:bg-[#06080d] text-white py-12 md:py-16 border-t border-white/5">
@@ -2073,11 +2189,13 @@ export default function HomePage() {
             <div>
               <div className="flex items-center gap-3 mb-4">
                 <motion.div
-                  whileHover={{ rotateY: 20, scale: 1.1 }}
+                  whileHover={{ rotateY: 20, scale: 1.08 }}
                   style={{ perspective: "400px" }}
-                  className="relative w-12 h-12 md:w-14 md:h-14 flex-shrink-0"
+                  className="relative w-12 h-12 md:w-14 md:h-14 p-1.5 rounded-2xl bg-white/10 dark:bg-slate-800/60 backdrop-blur-md border border-white/15 dark:border-slate-700 shadow-md flex-shrink-0 flex items-center justify-center"
                 >
-                  <Image src="/images/logo.png" alt="Awlad Khedr Logo" fill className="object-contain" />
+                  <div className="relative w-full h-full">
+                    <Image src="/images/logo.png" alt="Awlad Khedr Logo" fill className="object-contain" />
+                  </div>
                 </motion.div>
                 <div>
                   <div className="text-lg font-bold">أولاد خضر</div>
