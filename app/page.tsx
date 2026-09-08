@@ -2078,45 +2078,10 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionTitle title="معلومات" subtitle="لقاءاتنا وأنشطتنا" />
 
-          {/* Social Links Banner */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="flex flex-wrap items-center justify-center gap-4 mb-12"
-          >
-            <span className="text-slate-850 dark:text-white font-bold text-lg">تصفح فيديوهاتنا على</span>
-            <motion.a
-              whileHover={{ scale: 1.08, y: -3 }}
-              whileTap={{ scale: 0.96 }}
-              href="https://www.facebook.com/share/14qJfAuzFV7/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-2xl bg-[#1877F2] text-white font-bold text-sm shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50 transition-all"
-            >
-              <Facebook className="w-4 h-4" />
-              فيسبوك
-            </motion.a>
-            <motion.a
-              whileHover={{ scale: 1.08, y: -3 }}
-              whileTap={{ scale: 0.96 }}
-              href="https://vt.tiktok.com/ZSqkbDxy8/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-2xl bg-black text-white font-bold text-sm shadow-lg shadow-black/30 hover:shadow-black/50 transition-all"
-            >
-              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.27 8.27 0 0 0 4.84 1.55V6.79a4.85 4.85 0 0 1-1.07-.1z"/>
-              </svg>
-              تيك توك
-            </motion.a>
-          </motion.div>
+          {/* Row 1 — Meeting Photos */}
+          <div className="grid sm:grid-cols-2 gap-6 md:gap-10 justify-items-center mb-8">
 
-          {/* Photo Cards — الوفد الصيني first, then قناة الشمس */}
-          <div className="grid sm:grid-cols-2 gap-6 md:gap-10 justify-items-center">
-
-            {/* Card 1 — لقائنا مع الوفد الصيني */}
+            {/* Card 1 — لقائنا مع الوفد الصيني (5 أشخاص) */}
             <motion.a
               href="https://www.facebook.com/share/r/1cSN8thcaK/?mibextid=wwXIfr"
               target="_blank"
@@ -2136,9 +2101,7 @@ export default function HomePage() {
                   sizes="(max-width: 640px) 100vw, 50vw"
                   className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
                 />
-                {/* Permanent bottom gradient with title */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
-                {/* Title always visible */}
                 <div className="absolute bottom-0 left-0 right-0 p-5">
                   <h3 className="text-white text-xl font-black drop-shadow-lg">لقائنا مع الوفد الصيني</h3>
                   <div className="flex items-center gap-2 mt-1.5 opacity-80">
@@ -2146,18 +2109,15 @@ export default function HomePage() {
                     <span className="text-white text-xs font-medium">شاهد الفيديو على فيسبوك</span>
                   </div>
                 </div>
-                {/* Play button on hover */}
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <div className="w-16 h-16 rounded-full bg-[#1877F2]/90 flex items-center justify-center shadow-2xl">
-                    <svg className="w-7 h-7 text-white ml-1" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M8 5v14l11-7z" />
-                    </svg>
+                    <svg className="w-7 h-7 text-white ml-1" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z" /></svg>
                   </div>
                 </div>
               </div>
             </motion.a>
 
-            {/* Card 2 — لقائنا مع قناة الشمس */}
+            {/* Card 2 — لقائنا مع قناة الشمس (شخصين، الجزء العلوي) */}
             <motion.a
               href="https://www.facebook.com/share/v/1DRutzfE7D/?mibextid=wwXIfr"
               target="_blank"
@@ -2171,15 +2131,14 @@ export default function HomePage() {
             >
               <div className="relative w-full aspect-[4/3] overflow-hidden">
                 <Image
-                  src="/images/shams-thumb.jpg"
+                  src="/images/shams-channel.jpg"
                   alt="لقائنا مع قناة الشمس"
                   fill
                   sizes="(max-width: 640px) 100vw, 50vw"
-                  className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                  className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                  style={{ objectPosition: "center 15%" }}
                 />
-                {/* Permanent bottom gradient with title */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
-                {/* Title always visible */}
                 <div className="absolute bottom-0 left-0 right-0 p-5">
                   <h3 className="text-white text-xl font-black drop-shadow-lg">لقائنا مع قناة الشمس</h3>
                   <div className="flex items-center gap-2 mt-1.5 opacity-80">
@@ -2187,11 +2146,93 @@ export default function HomePage() {
                     <span className="text-white text-xs font-medium">شاهد الفيديو على فيسبوك</span>
                   </div>
                 </div>
-                {/* Play button on hover */}
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <div className="w-16 h-16 rounded-full bg-[#1877F2]/90 flex items-center justify-center shadow-2xl">
-                    <svg className="w-7 h-7 text-white ml-1" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M8 5v14l11-7z" />
+                    <svg className="w-7 h-7 text-white ml-1" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z" /></svg>
+                  </div>
+                </div>
+              </div>
+            </motion.a>
+          </div>
+
+          {/* Divider */}
+          <div className="flex items-center gap-4 mb-8">
+            <div className="flex-1 h-px bg-gray-100 dark:bg-slate-800" />
+            <span className="text-sm font-bold text-gray-400 dark:text-gray-500 whitespace-nowrap">تصفح فيديوهاتنا على</span>
+            <div className="flex-1 h-px bg-gray-100 dark:bg-slate-800" />
+          </div>
+
+          {/* Row 2 — Social Platform Thumbnails */}
+          <div className="grid sm:grid-cols-2 gap-6 md:gap-10 justify-items-center">
+
+            {/* FB Page Thumbnail */}
+            <motion.a
+              href="https://www.facebook.com/share/14qJfAuzFV7/"
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              whileHover={{ y: -6, scale: 1.02 }}
+              className="group relative w-full max-w-sm rounded-3xl overflow-hidden shadow-xl cursor-pointer"
+            >
+              <div className="relative w-full aspect-[4/3] overflow-hidden">
+                <Image
+                  src="/images/fb-thumb.jpg"
+                  alt="صفحتنا على فيسبوك"
+                  fill
+                  sizes="(max-width: 640px) 100vw, 50vw"
+                  className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-5">
+                  <div className="flex items-center gap-2">
+                    <Facebook className="w-4 h-4 text-white" />
+                    <span className="text-white text-sm font-bold">تابعنا على فيسبوك</span>
+                  </div>
+                </div>
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="w-14 h-14 rounded-full bg-[#1877F2]/90 flex items-center justify-center shadow-2xl">
+                    <Facebook className="w-6 h-6 text-white" />
+                  </div>
+                </div>
+              </div>
+            </motion.a>
+
+            {/* TikTok Thumbnail */}
+            <motion.a
+              href="https://vt.tiktok.com/ZSqkbDxy8/"
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.25 }}
+              whileHover={{ y: -6, scale: 1.02 }}
+              className="group relative w-full max-w-sm rounded-3xl overflow-hidden shadow-xl cursor-pointer"
+            >
+              <div className="relative w-full aspect-[4/3] overflow-hidden">
+                <Image
+                  src="/images/tiktok-thumb.jpg"
+                  alt="قناتنا على تيك توك"
+                  fill
+                  sizes="(max-width: 640px) 100vw, 50vw"
+                  className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-5">
+                  <div className="flex items-center gap-2">
+                    <svg className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.27 8.27 0 0 0 4.84 1.55V6.79a4.85 4.85 0 0 1-1.07-.1z"/>
+                    </svg>
+                    <span className="text-white text-sm font-bold">تابعنا على تيك توك</span>
+                  </div>
+                </div>
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="w-14 h-14 rounded-full bg-black/80 flex items-center justify-center shadow-2xl border border-white/20">
+                    <svg className="w-6 h-6 text-white" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.27 8.27 0 0 0 4.84 1.55V6.79a4.85 4.85 0 0 1-1.07-.1z"/>
                     </svg>
                   </div>
                 </div>
