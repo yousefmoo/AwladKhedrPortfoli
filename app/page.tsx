@@ -2155,6 +2155,75 @@ export default function HomePage() {
             </motion.a>
           </div>
 
+          {/* Row 1b — TikTok Videos (6 videos, 3+3) */}
+          <div className="mb-10">
+            <div className="flex items-center gap-4 mb-6">
+              <div className="flex-1 h-px bg-gray-100 dark:bg-slate-800" />
+              <span className="text-sm font-bold text-gray-400 dark:text-gray-500 whitespace-nowrap">فيديوهاتنا على تيك توك</span>
+              <div className="flex-1 h-px bg-gray-100 dark:bg-slate-800" />
+            </div>
+
+            {/* Row A — 3 videos */}
+            <div className="grid grid-cols-3 gap-4 mb-4">
+              {[
+                { id: "7551134213873962247", delay: 0 },
+                { id: "7676914429090352392", delay: 0.1 },
+                { id: "7605351952871951623", delay: 0.2 },
+              ].map(({ id, delay }) => (
+                <motion.div
+                  key={id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay }}
+                  className="rounded-2xl overflow-hidden shadow-lg bg-black"
+                >
+                  <div className="relative w-full" style={{ paddingTop: "177.78%" }}>
+                    <iframe
+                      src={`https://www.tiktok.com/embed/v2/${id}`}
+                      className="absolute inset-0 w-full h-full"
+                      style={{ border: "none" }}
+                      frameBorder="0"
+                      loading="lazy"
+                      allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"
+                      allowFullScreen
+                    />
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Row B — 3 more videos */}
+            <div className="grid grid-cols-3 gap-4">
+              {[
+                { id: "7606457065229339911", delay: 0 },
+                { id: "7597520097871236370", delay: 0.1 },
+                { id: "7580875359705386247", delay: 0.2 },
+              ].map(({ id, delay }) => (
+                <motion.div
+                  key={id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay }}
+                  className="rounded-2xl overflow-hidden shadow-lg bg-black"
+                >
+                  <div className="relative w-full" style={{ paddingTop: "177.78%" }}>
+                    <iframe
+                      src={`https://www.tiktok.com/embed/v2/${id}`}
+                      className="absolute inset-0 w-full h-full"
+                      style={{ border: "none" }}
+                      frameBorder="0"
+                      loading="lazy"
+                      allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"
+                      allowFullScreen
+                    />
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
           {/* Divider */}
           <div className="flex items-center gap-4 mb-8">
             <div className="flex-1 h-px bg-gray-100 dark:bg-slate-800" />
